@@ -14,22 +14,22 @@ public class Main {
   public static void main(String[] args)
       throws IOException, CCCEDICTReaderException {
     //create the reader
-    CCCEDICTReader c = new CCCEDICTReader(
+    CCCEDICTReader cr = new CCCEDICTReader(
       new FileInputStream("C:\\cedict_ts.u8"));
     
     //read entries to array
-    int size = Integer.parseInt(c.getHeaderMap().get("entries"));
+    int size = Integer.parseInt(cr.getHeaderMap().get("entries"));
     CCCEDICTEntry[] entries = new CCCEDICTEntry[size];
     int i = 0;
     while (true) {
-      CCCEDICTEntry ce = c.nextEntry();
+      CCCEDICTEntry ce = cr.nextEntry();
       if (ce == null)
         break;
       entries[i++] = ce;
     }
     
     //close the reader
-    c.getReader().close();
+    cr.getReader().close();
     
     //random entry
     int index = 5368;
