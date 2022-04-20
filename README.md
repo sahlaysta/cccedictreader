@@ -1,5 +1,5 @@
 # cccedictreader
-Java library to read and parse CC-CEDICT cedict_ts.u8
+Java library to read CC-CEDICT cedict_ts.u8
 
 CC-CEDICT by MDBG, can be obtained at https://www.mdbg.net/chinese/dictionary?page=cedict
 
