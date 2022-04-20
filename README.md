@@ -22,13 +22,8 @@ public class Main {
     //read entries to array
     int size = Integer.parseInt(cr.getHeaderMap().get("entries"));
     CCCEDICTEntry[] entries = new CCCEDICTEntry[size];
-    int i = 0;
-    while (true) {
-      CCCEDICTEntry ce = cr.nextEntry();
-      if (ce == null)
-        break;
-      entries[i++] = ce;
-    }
+    for (int i = 0; i < size; i++)
+      entries[i] = cr.nextEntry();
     
     //close the reader
     cr.getReader().close();
