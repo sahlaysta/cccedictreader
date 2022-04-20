@@ -5,6 +5,7 @@ CC-CEDICT by MDBG, can be obtained at https://www.mdbg.net/chinese/dictionary?pa
 
 ### Usage example
 ```java
+import java.io.BufferedInputStream;
 import java.io.FileInputStream;
 import java.io.IOException;
 
@@ -17,7 +18,8 @@ public class Main {
       throws IOException, CCCEDICTReaderException {
     //create the reader
     CCCEDICTReader cr = new CCCEDICTReader(
-      new FileInputStream("C:\\cedict_ts.u8"));
+      new BufferedInputStream(
+        new FileInputStream("C:\\cedict_ts.u8")));
     
     //read entries to array
     int size = Integer.parseInt(cr.getHeaderMap().get("entries"));
