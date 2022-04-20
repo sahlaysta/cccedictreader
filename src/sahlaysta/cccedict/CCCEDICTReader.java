@@ -52,7 +52,8 @@ public class CCCEDICTReader {
 	 * @throws NullPointerException if {@code inputStream} is {@code null} */
 	public CCCEDICTReader(InputStream inputStream)
 			throws CCCEDICTReaderException {
-		this(new InputStreamReader(inputStream, StandardCharsets.UTF_8));
+		Objects.requireNonNull(inputStream);
+		init(new InputStreamReader(inputStream, StandardCharsets.UTF_8));
 	}
 	
 	/** Initializes a new instance of the class.
@@ -62,8 +63,7 @@ public class CCCEDICTReader {
 	public CCCEDICTReader(Reader reader)
 			throws CCCEDICTReaderException {
 		Objects.requireNonNull(reader);
-		r = reader;
-		init();
+		init(reader);
 	}
 	
 	
@@ -181,7 +181,9 @@ public class CCCEDICTReader {
 	
 	//initializations
 	
-	void init() throws CCCEDICTReaderException {
+	void init(Reader reader) throws CCCEDICTReaderException {
+		r = reader;
+		
 		//read header
 		StringBuilder sb = new StringBuilder();
 		while (true) {
@@ -333,7 +335,7 @@ public class CCCEDICTReader {
 	long line = 1, col = 0;
 	
 	//input source
-	final Reader r;
+	Reader r;
 	
 	//current char
 	char c;
