@@ -198,9 +198,9 @@ public class CCCEDICTReader {
 					+ " or '!' char after '#' char.");
 			}
 			
-			// '!'
+			//leading space
 			if (c == ' ')
-				nextChar();//skip leading space
+				nextChar();
 			
 			//read line
 			while (true) {
@@ -303,14 +303,16 @@ public class CCCEDICTReader {
 	String locationMsg() {
 		boolean lineMaxed = line == Long.MAX_VALUE;
 		boolean colMaxed = col == Long.MAX_VALUE;
-		if (col == 0) line--;//line break
+		long lineVal = line;
+		long colVal = col;
+		if (colVal == 0) lineVal--;//line break
 		return
 			"line " +
-				(lineMaxed ? "?" : line) +
+				(lineMaxed ? "?" : lineVal) +
 				
-			(col != 0 ?
+			(colVal != 0 ?
 				(", column " +
-					(colMaxed ? "?" : col))
+					(colMaxed ? "?" : colVal))
 				: "") +
 			
 			".";
