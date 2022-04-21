@@ -99,16 +99,8 @@ public class CCCEDICTEntry {
 		return definitions;
 	}
 	
-
-	/** The Traditional Chinese variant. */
 	private final String traditional;
-	
-	/** The Simplified Chinese variant. */
 	private final String simplified;
-	
-	/** The pronunciation in pinyin. */
 	private final String pronunciation;
-	
-	/** The English definitions. */
 	private final List<String> definitions;
 }
